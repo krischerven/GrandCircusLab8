@@ -26,7 +26,7 @@ public class GrandCircusLab8 {
 					if (next > 0 && next <= max) {
 						return next;
 					} else {
-						System.out.println("This student does not exist. Please enter a number between 1 and " + max);
+						System.out.println("This student does not exist. Please enter a number between 1 and " + max+".");
 					}
 				}
 			}
