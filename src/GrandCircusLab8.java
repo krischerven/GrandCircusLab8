@@ -46,23 +46,24 @@ public class GrandCircusLab8 {
 		Person person = null;
 		int iter = 0;
 		
-		for (final String line : lines) {
+		for (String line : lines) {
 			// entries always have to be in order;
 			// the names (name: x) in database are just for human-readability
 			if (line.startsWith("@entry")) {
 				person = new Person();
 			} else {
+				line = line.split(": ")[1];
 				switch (iter++) {
 					case 0: {
-						person.name = line.split(": ")[1];
+						person.name = line;
 						break;
 					}
 					case 1: {
-						person.hometown = line.split(": ")[1];
+						person.hometown = line;
 						break;
 					}
 					case 2: {
-						person.favoritefood = line.split(": ")[1];
+						person.favoritefood = line;
 						people.add(person);
 						iter = 0;
 						break;
