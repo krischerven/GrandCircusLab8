@@ -11,17 +11,29 @@ public class GrandCircusLab8 {
 		final class Person {
 			public String name;
 			public String hometown;
-			public String favoritefood;
+			public String favoriteFood;
 			
 			@SuppressWarnings("unused")
 			public String datumize() {
 				return "Name: " + name + "\n" +
 						"Hometown: " + hometown + "\n" +
-						"Favorite Food: " + favoritefood + "\n";
+						"Favorite Food: " + favoriteFood + "\n";
 			}
 		}
 		
 		final class Getter {
+			public boolean getYesNo(final Scanner sc) {
+				while (true) {
+					String next = sc.nextLine().toLowerCase().trim();
+					if (next.equals("y") || next.equals("yes")) {
+						return true;
+					} else if (next.equals("n") || next.equals("no")) {
+						return false;
+					} else {
+						System.out.println("Invalid input. Please enter y/n.");
+					}
+				}
+			}
 			public int getInt(final int max, final Scanner sc) {
 				while (true) { // using while (true) fixes the return error
 					int next = 0;
@@ -71,7 +83,7 @@ public class GrandCircusLab8 {
 						break;
 					}
 					case 2: {
-						person.favoritefood = line;
+						person.favoriteFood = line;
 						people.add(person);
 						iter = 0;
 						break;
@@ -86,7 +98,8 @@ public class GrandCircusLab8 {
 		while (cont) {
 			System.out.println("Please select a student from 1 to " + people.size() + ".");
 			
-			final int num = (new Getter()).getInt(people.size(), sc2);
+			final Getter getter = new Getter();
+			final int num = getter.getInt(people.size(), sc2);
 			final Person selected = people.get(num-1);
 			boolean cont2 = true;
 
@@ -96,12 +109,12 @@ public class GrandCircusLab8 {
 				final String entry = sc2.nextLine();
 				switch (entry.toLowerCase().trim()) {
 					case "hometown": {
-						System.out.println(person.name + " is from " + selected.hometown);
+						System.out.println(selected.name + " is from " + selected.hometown);
 						break;
 					}
 					case "favorite food":
 					case "food": {
-						System.out.println(person.name + "'s favorite food is " + selected.favoritefood.toLowerCase());
+						System.out.println(selected.name + "'s favorite food is " + selected.favoriteFood.toLowerCase());
 						break;
 					}
 					default: {
@@ -111,15 +124,13 @@ public class GrandCircusLab8 {
 					}
 				}
 				System.out.println("Would you like to know more? (y/n)");
-				final String next = sc2.nextLine().toLowerCase().trim();
-				cont2 = next.equals("y") || next.equals("yes");
+				cont2 = getter.getYesNo(sc2);
 				if (cont2) {
 					System.out.println("What else do you want to know?");
 				}
 			}
 			System.out.println("Would you like to select another student? (y/n)");
-			final String next = sc2.nextLine().toLowerCase().trim();
-			cont = next.equals("y") || next.equals("yes");
+			cont = getter.getYesNo(sc2);
 		}
 		System.out.println("Goodbye.");
 	}
