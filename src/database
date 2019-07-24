@@ -1,0 +1,40 @@
+@entry
+name: John Doe
+hometown: Detroit
+favoritefood: Pizza
+@entry
+name: Pete Peterson
+hometown: New Orleans
+favoritefood: Crawfish
+@entry
+name: Jane Doe
+hometown: Chicago
+favoritefood: Pasta
+@entry
+name: Donald Schumacher
+hometown: New York
+favoritefood: Steak
+@entry
+name: Peter Harrison
+hometown: San Francisco
+favoritefood: Mashed potatoes
+@entry
+name: Ben Shapiro
+hometown: Los Angeles
+favoritefood: nobody knows
+@entry
+name: Kris Cherven
+hometown: Detroit
+favoritefood: gumbo
+@entry
+name: Andrew Anderson
+hometown: Houston
+favorite food: brisket
+@entry
+name: Mary Meijer
+hometown: New York
+favoritefood: Pizza (New York style)
+@entry
+name: Michaela Bronowski
+hometown: Dallas
+favorite food: hamburgers
