@@ -111,17 +111,15 @@ public class GrandCircusLab8 {
 					}
 				}
 				System.out.println("Would you like to know more? (y/n)");
-				final String next = sc2.nextLine();
-				cont2 = next.toLowerCase().trim().equals("y") ||
-						next.toLowerCase().trim().equals("yes");
+				final String next = sc2.nextLine().toLowerCase().trim();
+				cont2 = next.equals("y") || next.equals("yes");
 				if (cont2) {
 					System.out.println("What else do you want to know?");
 				}
 			}
 			System.out.println("Would you like to select another student? (y/n)");
-			final String next = sc2.nextLine();
-			cont = next.toLowerCase().trim().equals("y") ||
-					next.toLowerCase().trim().equals("yes");
+			final String next = sc2.nextLine().toLowerCase().trim();
+			cont = next.equals("y") || next.equals("yes");
 		}
 		System.out.println("Goodbye.");
 	}
