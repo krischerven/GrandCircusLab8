@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
+import java.util.InputMismatchException;
 
 public class GrandCircusLab8 {
 	
@@ -21,7 +22,12 @@ public class GrandCircusLab8 {
 		final class IntGetter {
 			public int getInt(final int max, final Scanner sc) {
 				while (true) { // using while (true) fixes the return error
-					final int next = sc.nextInt();
+					int next = 0;
+					try {
+						next = sc.nextInt();
+					// ignore literally anything that isn't 1 - 10
+					} catch (InputMismatchException e) {
+					}
 					sc.nextLine(); // discard garbage line
 					if (next > 0 && next <= max) {
 						return next;
@@ -45,7 +51,7 @@ public class GrandCircusLab8 {
 		final String[] lines = sb.toString().split("\n");
 		final ArrayList<Person> people = new ArrayList<Person>();
 		int iter = 0;
-		
+				
 		for (String line : lines) {
 			// entries always have to be in order;
 			// the names (name: x) in database are just for human-readability
