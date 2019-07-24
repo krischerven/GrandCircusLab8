@@ -24,7 +24,7 @@ public class GrandCircusLab8 {
 		final class Getter {
 			public boolean getYesNo(final Scanner sc) {
 				while (true) {
-					String next = sc.nextLine().toLowerCase().trim();
+					final String next = sc.nextLine().toLowerCase().trim();
 					if (next.equals("y") || next.equals("yes")) {
 						return true;
 					} else if (next.equals("n") || next.equals("no")) {
