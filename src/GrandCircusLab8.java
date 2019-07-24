@@ -1,25 +1,29 @@
 import java.util.Scanner;
+import java.util.Comparator;
 import java.util.ArrayList;
 import java.io.FileReader;
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 
+final class Person {
+	public String name;
+	public String hometown;
+	public String favoriteFood;
+	public int compare(final Person a, final Person b) {
+		return a.name.toLowerCase().compareTo(b.name.toLowerCase());
+	}
+}
+
+final class PersonSorter implements Comparator<Person> {
+	@Override
+	public int compare(final Person a, final Person b) {
+		return a.name.compareTo(b.name);
+	}
+}
+
 public class GrandCircusLab8 {
 	
 	public static void main(final String[] args) throws FileNotFoundException {
-
-		final class Person {
-			public String name;
-			public String hometown;
-			public String favoriteFood;
-			
-			@SuppressWarnings("unused")
-			public String datumize() {
-				return "Name: " + name + "\n" +
-						"Hometown: " + hometown + "\n" +
-						"Favorite Food: " + favoriteFood + "\n";
-			}
-		}
 		
 		final class Getter {
 			public boolean getYesNo(final Scanner sc) {
@@ -64,6 +68,7 @@ public class GrandCircusLab8 {
 		Person person = null;
 		final String[] lines = sb.toString().split("\n");
 		final ArrayList<Person> people = new ArrayList<Person>();
+				
 		int iter = 0;
 				
 		for (String line : lines) {
@@ -91,7 +96,8 @@ public class GrandCircusLab8 {
 				}
 			}
 		}
-		
+
+		people.sort(new PersonSorter());
 		boolean cont = true;
 		final Scanner sc2 = new Scanner(System.in);
 		System.out.println("Welcome to our Java class. Which student would you like to learn more about? (1 - 10)");
