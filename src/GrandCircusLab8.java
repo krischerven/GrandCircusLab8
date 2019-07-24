@@ -22,7 +22,7 @@ public class GrandCircusLab8 {
 			public int getInt(final int max, final Scanner sc) {
 				while (true) { // using while (true) fixes the return error
 					final int next = sc.nextInt();
-					sc.nextLine(); // garbage line
+					sc.nextLine(); // discard garbage line
 					if (next > 0 && next <= max) {
 						return next;
 					} else {
@@ -41,9 +41,9 @@ public class GrandCircusLab8 {
 		sc.close();
 		
 		// create people
+		Person person = null;
 		final String[] lines = sb.toString().split("\n");
 		final ArrayList<Person> people = new ArrayList<Person>();
-		Person person = null;
 		int iter = 0;
 		
 		for (String line : lines) {
