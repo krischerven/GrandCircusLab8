@@ -12,6 +12,8 @@ public class GrandCircusLab8 {
 			public String name;
 			public String hometown;
 			public String favoritefood;
+			
+			@SuppressWarnings("unused")
 			public String datumize() {
 				return "Name: " + name + "\n" +
 						"Hometown: " + hometown + "\n" +
@@ -83,11 +85,41 @@ public class GrandCircusLab8 {
 		System.out.println("Welcome to our Java class. Which student would you like to learn more about? (1 - 10)");
 		while (cont) {
 			System.out.println("Please select a student from 1 to " + people.size() + ".");
+			
 			final int num = (new IntGetter()).getInt(people.size(), sc2);
-			System.out.println(people.get(num-1).datumize());
-			System.out.println("Continue? (y/n)");
-			final String yesno = sc2.nextLine().toLowerCase().trim();
-			cont = (yesno.equals("y") || yesno.equals("yes"));
+			final Person selected = people.get(num-1);
+			boolean cont2 = true;
+
+			System.out.println("Student #" + num + " is " + selected.name + ". "
+					+ "What would you like to know about " + selected.name + "? (options: hometown, favorite food)");
+			while (cont2) {
+				final String entry = sc2.nextLine();
+				switch (entry.toLowerCase().trim()) {
+					case "hometown": {
+						System.out.println(person.name + " is from " + selected.hometown);
+						break;
+					}
+					case "favorite food":
+					case "food": {
+						System.out.println(person.name + "'s favorite food is " + selected.favoritefood.toLowerCase());
+						break;
+					}
+					default: {
+						System.out.println("\""+entry+"\"" + " is not an option in the database. Try \"hometown\""
+								+ " or \"favorite food\".");
+						continue;
+					}
+				}
+				System.out.println("Would you like to know more? (y/n)");
+				final String next = sc2.nextLine();
+				cont2 = next.toLowerCase().trim().equals("y") ||
+						next.toLowerCase().trim().equals("yes");
+			}
+			System.out.println("Would you like to select another student? (y/n)");
+			final String next = sc2.nextLine();
+			cont = next.toLowerCase().trim().equals("y") ||
+					next.toLowerCase().trim().equals("yes");
 		}
+		System.out.println("Goodbye.");
 	}
 }
