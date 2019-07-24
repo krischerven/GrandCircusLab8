@@ -21,7 +21,7 @@ public class GrandCircusLab8 {
 			}
 		}
 		
-		final class IntGetter {
+		final class Getter {
 			public int getInt(final int max, final Scanner sc) {
 				while (true) { // using while (true) fixes the return error
 					int next = 0;
@@ -86,7 +86,7 @@ public class GrandCircusLab8 {
 		while (cont) {
 			System.out.println("Please select a student from 1 to " + people.size() + ".");
 			
-			final int num = (new IntGetter()).getInt(people.size(), sc2);
+			final int num = (new Getter()).getInt(people.size(), sc2);
 			final Person selected = people.get(num-1);
 			boolean cont2 = true;
 
