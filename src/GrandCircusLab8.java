@@ -114,6 +114,9 @@ public class GrandCircusLab8 {
 				final String next = sc2.nextLine();
 				cont2 = next.toLowerCase().trim().equals("y") ||
 						next.toLowerCase().trim().equals("yes");
+				if (cont2) {
+					System.out.println("What else do you want to know?");
+				}
 			}
 			System.out.println("Would you like to select another student? (y/n)");
 			final String next = sc2.nextLine();
